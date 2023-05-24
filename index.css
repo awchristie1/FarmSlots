@@ -1,0 +1,108 @@
+@font-face {
+    font-family: ShadowsIntoLightTwo;
+    src: url(ShadowsIntoLightTwo-Regular.ttf);
+  }
+
+body{
+    height: 99vh;
+    width:100vw;
+    display: grid;
+    grid-template-areas:
+        "head head head"
+        ". win_notification ."
+        "reel1 reel2 reel3"
+        ". prize_notification ."
+        ". foot .";
+    margin: 0;
+    grid-template-rows: 15vh 6rem 50vh 6rem 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: stretch;
+    align-items: stretch;
+    font-family: ShadowsIntoLightTwo,sans-serif;
+    background-color: white;
+    color: black;
+}
+
+/* The animation code */
+@keyframes winningReels {
+    0%   {background-color: white;}
+    25%  {background-color: magenta;}
+    50%  {background-color: cyan}
+    75%   {background-color: yellow;}
+    100% {background-color:white;}
+  }
+
+.reel {
+    border: .125em solid black;
+    Margin: .5em;
+    overflow: hidden;
+    height: 45vh;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    text-align: center;
+    border-radius: .5in;
+    background-color: white;
+    transition: background-color 1s;
+}
+
+.reel.winning {
+    animation: winningReels 2s;
+}
+
+div#foot {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+}
+
+button {
+    height: 100%;
+}
+
+div {
+    /* display: flex; */
+    flex-direction: column;
+}
+
+div#head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 3em;
+    justify-content: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 5rem;
+}
+
+.slotStop{
+    height:100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vh;
+    height: 100%;
+    scroll-snap-align:center;
+}
+
+.notif {
+    height: 2em;
+    text-align: center;
+    transition: opacity 1s;
+    font-size: 3rem;
+    white-space: nowrap;
+}
+
+
+.notif.hidden {
+    opacity: 0;
+    transition: none;
+}
+
+
+div#message {}
